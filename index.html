@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clock App</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: "Helvetica Neue", sans-serif;
+        background-color: #161b22;
+        color: white;
+      }
+
+      #clock {
+        font-size: 6em;
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1f2933;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock"></div>
+
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        var time = hours + ":" + minutes + ":" + seconds;
+
+        document.getElementById("clock").innerHTML = time;
+
+        setTimeout(updateClock, 1000);
+      }
+
+      updateClock();
+    </script>
+  </body>
+</html>
